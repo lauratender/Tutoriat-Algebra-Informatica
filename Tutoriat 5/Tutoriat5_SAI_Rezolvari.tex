@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 5 \\
+\Large }
+\date{- 2 decembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+\section{Exercițiul 1}
+Determinați elementele de ordin $30$ din $\mathbf{Z}_{240}$.
+\subsection{Rezolvare:}
+Căutam elementele $\widehat{x}$ cu ordinul $30$ în $\mathbf{Z}_{240} \iff$ $\widehat{x}^{30} = \widehat{0}$ și nu exista $k < 30$ astfel încât $\widehat{x}^{k} = \widehat{0} \iff x^{30} \equiv 0$ (mod $240$) și nu exista $k < 30$ astfel încât $x^{k} \equiv 0$ (mod $240$).
+\newline
+Fie $\widehat{k} \in \mathbf{Z}_n$, atunci ord($\widehat{k}$) = $\frac{n}{(n,k)}$.
+\newline
+Cum $\mathbf{Z}_{240}$ este un grup ciclic, relațiile de mai sus se pot rescrie $30x \equiv 0 $ (mod $240$). Astfel, căutăm elementele $\widehat{x}$ pentru care $\frac{240}{(240, x)} = 30 \iff (240, x) = 8$.
+\newline
+$240 = 2^4 \cdot 3 \cdot 5 \Rightarrow 8 \ | \ x$ dar $16 \nmid x, 3 \nmid x, 5 \nmid x$. 
+\newline
+$\widehat{x} \in \{\widehat{8}, \, \widehat{56}, \, \widehat{88}, \, \widehat{104}, \, \widehat{136}, \, \widehat{152}, \, \widehat{184}, \, \widehat{232}\}$.
+
+\section{Exercițiul 2}
+(i) Fie $G_1$, $G_2$ două grupuri și $x_1 \in G_1$, $x_2 \in G_2$ elemente de ordin finit. Arătați că ord($x_1, x_2$) = [ord($x_1$), ord($x_2$)].
+\newline
+(ii) Determinați ord([3], [4]) în grupul $\mathbf{Z}_{24} \times \mathbf{Z}_{36}$.
+\subsection{Rezolvare:}
+i) Fie $m$ = ord ($x_1$) și $n$ = ord ($x_2$). $x_1^m = e_1$ (în $G_1$) și $x_2^n = e_2$ (în $G_2$).  
+\newline
+Fie p = ord($x_1, x_2$), atunci ($x_1, x_2$)$^p$ = $e \iff (x_1^p, x_2^p) = (e_1, e_2) \iff m \ | \ p \text{ și } n \ | \ p \text{ și } p \text{ minim} \iff p = [m, n]$.  
+\newline \newline
+ii) Conformm i) ord([3], [4]) = [ord(3), ord(4)] în $\mathbf{Z}_{24}$, respectiv $\mathbf{Z}_{36}$.
+\newline
+ord(3) = $\frac{24}{(3, 24)} = 8$, ord(4) = $\frac{36}{(4, 36)} = 9$.
+\newline
+ord([3], [4]) = $8 \cdot 9 = 72$.
+
+\section{Exercițiul 3}
+Determinați morfisemele între grupurile aditive $\mathbf{Z}_m$ și $\mathbf{Z}_n$.
+\subsection{Rezolvare:}
+Fie $\{f: \mathbf{Z}_m \rightarrow \mathbf{Z}_n | \ f(\widehat{x} + \widehat{y}) = f(\widehat{x}) + f(\widehat{y}), f(\widehat{0}) = \widehat{0}\}$ morfismele căutate.
+\newline \newline
+Notăm $f(\widehat{1}) = \widehat{a}, \, a \in \mathbf{Z}_n$. Atunci f($\widehat{x}) = f(\widehat{1} + \widehat{1} + ... \widehat{1}) = x \cdot \widehat{a}, \,  x \in \mathbf{Z}_m$.
+\newline \newline
+f($\widehat{m}) = m \cdot \widehat{a} = \widehat{0} \Rightarrow n| m \cdot a. \text{ Notăm } (n, m) = d \Rightarrow \frac{n}{d} \ | \ a \Rightarrow a = \frac{n}{d} \cdot k$. 
+\newline
+În concluzie, $\widehat{a} = \{\widehat{0}, \widehat{\frac{n}{d}}, ..., \widehat{\frac{(d-1)n}{d}}\}$.
+\section{Exercițiul 4}
+Fie grupul abelian $G = \mathbf{Z}_{4} \times \mathbf{Z}_{10}$.
+
+\begin{enumerate}
+    \item Se consideră elementul $x = (\widehat{2}, \widehat{2})$ al lui $G$. Aflați ordinul lui $x$ și scrieți toate elementele subgrupului $H = \ <x>$.
+    \item Cu ce grup este izomorf $G/H$?
+    \item Aflați ordinul maxim al elementelor lui $G$ și dați un exemplu de element de ordin maxim.
+    \item Determinați toate elementele de ordin $20$ din $G$.
+\end{enumerate}
+\emph{(Examen algebră, 26.01.2018, seria 10)}
+\subsection{Rezolvare:}
+
+\begin{enumerate}
+\item Putem alfa ordinul elementului x prin relația ord(x) = cmmmc(ord($\widehat{2}$ în $\mathbf{Z_4}$), ord($\widehat{2}$ în $\mathbf{Z_{10}}$)). Totodată, ordinul este numărul de elemente din subgrupul $H = \{(\widehat{0}, \widehat{0}), 
+(\widehat{0}, \widehat{2}), 
+(\widehat{0}, \widehat{4}), 
+(\widehat{0}, \widehat{6}), 
+(\widehat{0}, \widehat{8}),
+(\widehat{1}, \widehat{0}), 
+(\widehat{1}, \widehat{2}), 
+(\widehat{1}, \widehat{4}), 
+(\widehat{1}, \widehat{6}), 
+(\widehat{1}, \widehat{8})\}$.
+
+\item Observăm că elementele din $G/H$ sunt de forma $G/H = \{
+(\overline{\overline{0}},\overline{\overline{0}}), 
+(\overline{\overline{0}}, \overline{\overline{1}}),
+(\overline{\overline{1}}, \overline{\overline{0}}),
+(\overline{\overline{1}}, \overline{\overline{1}})
+\}$. Astfel, $G/H \cong Z_{2} \times Z_{2}$. Acestă relație de izomorfism se poate argumenta construind tabelele legilor pentru cele două grupuri. În general, avem că $Z_{n} / <x> \cong Z_{n/ord(x)}$
+
+\item Cum am precizat și la punctul 1), ordinul elementului $(\widehat{x}, \widehat{y}) \in \mathbf{Z_{4} \times \mathbf{Z_{10}}}$ este cmmmc(ord(x), ord(y)). Din teorema lui Lagrange știm că ord(x) $|$ 4 și ord(y) $|$ 10. Alegând convenabil ord(x) = 4 și ord(y) = 10, avem ordinul maxim din grup, și anume cmmmc(4, 10) = 20. Un astfel de element cu ordin maxim este $(\widehat{1}, \widehat{1})$.
+
+\item Mai intâi trebuie să determinăm toate combinațiile de numere cu cmmmc-ul 20. Acestea sunt (4, 10) și (4, 5). Elementele corespunzătoare ordinelor 4 și 10 sunt $(\widehat{1}, \widehat{1}), 
+(\widehat{1}, \widehat{3}),
+(\widehat{1}, \widehat{7}),
+(\widehat{1}, \widehat{9}),
+(\widehat{3}, \widehat{1}), 
+(\widehat{3}, \widehat{3}),
+(\widehat{3}, \widehat{7}),
+(\widehat{3}, \widehat{9})
+$. Elementele corespunzătoare sunt $(\widehat{1},\widehat{2}), 
+(\widehat{1}, \widehat{4}), 
+(\widehat{1}, \widehat{6}), 
+(\widehat{1}, \widehat{8}),
+(\widehat{3},\widehat{2}), 
+(\widehat{3}, \widehat{4}), 
+(\widehat{3}, \widehat{6}), 
+(\widehat{3}, \widehat{8})
+$. Acestea sunt toate elementele pentru care ordinul lor in G este 20.
+
+\end{enumerate}
+
+\end{document}

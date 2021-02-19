@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 6 - Rezolvări \\
+\Large  Grupul de permutări}
+\date{- 9 decembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+\section{Exercițiul 1}
+Fie permutarea $\sigma$ = $\bigl(\begin{smallmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+    3 & 4 & 5 & 7 & 9 & 2 & 8 & 6 & 1 & 11 & 10
+  \end{smallmatrix}\bigr)$ $\in S_{11}$
+\begin{enumerate}
+    \item Descompuneți $\sigma$ în produs de cicli dijuncți.
+    \item Descompuneți $\sigma$ în produs de transpoziții.
+    \item Calculați sgn($\sigma$) și ord($\sigma$).
+    \item Există permutări de ordin 35 în $S_{11}$
+    \item Rezolvați ecuația $x^{2011} = \sigma$.
+\end{enumerate}
+
+
+\subsection{Rezolvare:}
+
+\begin{enumerate}
+    \item $\sigma = (1, 3, 5, 9)(2, 4, 7, 8, 6)(10, 11)$
+    \item având descompusă permutarea in cicli decscompunerea în transpoziții este $\sigma = 
+    (1, 3)(3, 5)(5, 9) \ (2, 4)(4, 7)(7, 8)(8, 6) \ (10, 11)$
+    \item Signatura unui produs de ciclii este produsul signaturiilor ciclilor. Un ciclu de lungime n are signatura $(-1)^{n-1}$. Deci sgn($\sigma$) = $(-1)^{3}\cdot(-1)^{4}\cdot(-1)^{1} = 1$. Ordinul permutării este cel mai mic multiplu comun al lungimilor cicliilor în care acesta se descompune. ord($\sigma$) = cmmmc(4, 5, 2) = 20.
+    \item Cum $35 = 7 \cdot 5$ rezultă că permutarea ar trebui să conțină cel puțin un ciclu de lungime 7 și un ciclu de lungime 5. Însă lungimea acestor cicli este $12 > 11$ și deci prin urmare nu poate exista o permutare din $S_{11}$ cu ordinul 35.
+    \item Trebuie să argumentăm de unde poate proveni fiecare ciclu din permutarea $\sigma$ (spre exemplu 2 2-ciclu pot proveni dintr-un ciclu de lungime 4 ridicat la pătrat). Luând pe rând ciclii din $\sigma$, cel de lungime 5 poate proveni doar dintr-un ciclu de lungime 5, cel de lungime 4 în mod analog iar cel de lungime 2 tot dintr-un ciclu de lungime 2. Ne rămâne să vedem ce ciclu de lungime 5 ridicat la 2011 da ciclul de lungime 5 din $\sigma$. Folosindu-ne de ordinul unui ciclu, găsim pe rând ciclii și deci x = $(1, 9, 5, 3)(2, 4, 7, 8, 6)(10, 11)$
+    
+\end {enumerate}
+
+\section{Exercițiul 2}
+Fie $\sigma = (1 3 2 4) \in S_4$.
+\begin{enumerate}
+    \item Determinați soluțiile ecuației $x^2 = \sigma, x \in S_4$
+    \item Determinați soluțiile ecuației $x^3 = \sigma, x \in S_4$.
+    \item Aflați numărul de elemente din $H = <\sigma>$ (subgrupul generat de $\sigma$ în $S_4$.
+    \item Aflați indicele lui $H$ în $S_4$.
+    \item Arătați că $H$ nu e subgrup normal în $S_4$.
+    \item Determinați cel mai mic subgrup normal al lui $S_4$ care-l conține pe $H$.
+\end{enumerate}
+\emph{(Examen algebră, 31.01.2020, seria 13)}
+\subsection{Rezolvare:}
+\begin{enumerate}
+    \item Pentru ca ecuația $x^2 = \sigma, x \in S_4$ să aibă soluție, $\sigma$ trebuie să fie o permutare pară. 
+    \newline Putem scrie $\sigma$ astfel 
+    \[
+  \sigma = \bigl(\begin{smallmatrix}
+    1 & 2 & 3  & 4 \\
+    3 & 4 & 2  & 1
+  \end{smallmatrix}\bigr)
+\]
+ord($\sigma$) = 2 + 3 = 5 $\Rightarrow$ sgn($\sigma$) = -1, $\sigma$ este impară deci ecuația nu are soluție.
+    \item Trebuie să știm că atunci când ridicăm o transpoziție la puterea a treia obținem aceeași transpoziție, când ridicăm un ciclu de lungime trei la puterea a treia obținem permutarea identică, iar când ridicăm un ciclu de lungime patru la puterea a treia obținem tot un ciclu de lungime patru. Astfel, soluția ecuației $x^3 = \sigma, x \in S_4$ poate fi doar un ciclu de patru. Fie permutarea
+\[
+  x = \bigl(\begin{smallmatrix}
+    1 & 2 & 3  & 4 \\
+    4 & 3 & 1  & 2
+  \end{smallmatrix}\bigr)
+\]
+\[
+  x^2 = \bigl(\begin{smallmatrix}
+    1 & 2 & 3  & 4 \\
+    2 & 1 & 4  & 3
+  \end{smallmatrix}\bigr)
+\]
+\[
+  \sigma = x^3 = \bigl(\begin{smallmatrix}
+    1 & 2 & 3  & 4 \\
+    3 & 4 & 2  & 1
+  \end{smallmatrix}\bigr)
+\]
+    \item $\sigma$ este un ciclu de lungime patru, deci $\sigma^4 = e$. Astfel numărul de elemente din $H = <\sigma>$ este 4, $H = \{ e, \sigma, (12)(34), (1423)\}$.
+    \item $S_4$ are 4! = 24 elemente. Indicele lui $H$ în $S_4$, $[S_4:H]$ = $\frac{\text{ord}(S_4)}{\text{ord}(H)}$ = 6.
+    \item Dacă $H$ ar fi subgrup normal în $S_4$, atunci $\forall x \in S_4, \forall y \in H \ xyx^{-1} \in H$. Fie $x$ = (123)
+    \[
+    x = \bigl(\begin{smallmatrix}
+    1 & 2 & 3  & 4 \\
+    2 & 3 & 1  & 4
+  \end{smallmatrix}\bigr)
+\] $x^{-1}$ = (132)
+    \[
+    x = \bigl(\begin{smallmatrix}
+    1 & 2 & 3  & 4 \\
+    3 & 1 & 2  & 4
+  \end{smallmatrix}\bigr)
+\] 
+$x \sigma x^{-1} = (123)(1324)(132) = (1342) \notin H \Rightarrow H$ nu e subgrup normal.
+    \item Vom demonsta la exercițiul următor că $S_4$ are următoarele subgrupuri normale $\{e\}, K, A_4, S_4$. Dintre acestea, cel mai mic subgrup care îl conține pe $H$ este $S_4$.
+\end{enumerate}
+
+\section{Exercițiul 3}
+Fie $K = \{ e, (12)(34), (13)(24), (14)(23) \} \subseteq S_4$. Să se arate că: 
+\begin{enumerate}
+    \item K este subgrup normal în $S_4$ (deci și în $A_4$).
+    \item $S_4/K$ este izomorf cu $S_3$.
+    \item $A_4$ nu are subgrupuri de ordin 6.
+    \item Subgrupurile normale ale lui $S_4$ sunt $\{e\}, K, A_4, S_4$.
+\end{enumerate}
+\emph{Referință: Cornel Băețică, Crina Boboc, Sorin Dăscălescu, Gabriel Mincu, "Probleme de algebră", capitolul 3, exercițiul 66}
+\subsection{Rezolvare:}
+\begin{enumerate}
+    \item Fie $\sigma \in S_4$. Dacă K este subgrup normal în $S_4$, atunci $\sigma x \sigma^{-1} \in K, \, x \in S_4$.
+    \newline
+    $\sigma (12)(34) \sigma^{-1} = (\sigma(1)\sigma(2))(\sigma(3)\sigma(4)) \in K$. Analog și pentru celelalte elemente din $K$, deci K subgrup normal.
+    \item $|S_4/K| = 6$, deci $S_4/K$ este izomorf cu $\mathbf{Z}_6 \text{ sau } S_3$ \emph{(demonstație tutoriat 3, exercițiul 3)}. Dacă $S_4/K$ ar fi izomorf cu $\mathbf{Z}_6$ atunci acesta ar fi grup ciclic și ar conține un element de ordin 6, pe care îl notez cu $\widehat{\sigma}$. Dar $\sigma \in S_4 \text{ permutare }$ deci ord$(\sigma) \in \{1, 2, 3, 4\}$. Atunci $\widehat{\sigma}$ nu poate avea ordin 6. Deci $S_4/K$ nu este izomorf cu $\mathbf{Z}_6 \Rightarrow S_4/K \cong S_3$.
+    \item $A_4$ este subgrupul permutărilor pare din $S_4$. ord($A_4$) = 12. $A_4 = \{e, (12)(34), \newline (13)(24), (14)(23), (123), (132), (124), (142), (134), (143), (234), (243)\}$. $A_4$ are un element de ordin 1, trei elemente de ordin 2 și opt elemente de ordin 3. Dacă $X$ este un subgrup cu 6 elemente, atunci $X$ nu poate fi izomorf cu $\mathbf{Z}_6$ pentru că nu are niciun element de ordin 6. Deci $X$ ar trebui să fie izomorf cu $S_3$. Astfel $X$ trebuie să conțină două elemente de ordin 2, și acestea pot fi doar (12)(34), (13)(24), (14)(23). Alegând oricare dintre ele o vor genera pe cea de-a treia. Deci nu putem obține un subgrup cu 6 elemente al lui $A_4$.
+    \item Fie $X$ subgrupurile normale al lui $S_4$. Vom analiza două cazuri: \newline
+    a) $X \subseteq A_4$ \newline
+    b) $X \nsubseteq A_4$ \newline
+    a) În acest caz, conform teoremei lui Lagrange, un subgrup propriu al lui $A_4$ are ordinul 2, 3, 4 sau 6. Deja am demonstrat că nu există subgrupuri cu 6 elemente. Un grup cu ordinul 4 nu are elemente de ordin 3 (nu ar respecta Langrange, $3 \nmid 4$). Deci singurul grup cu 4 elemente este K. Subgrupurile cu 3 sau 2 elemnente sunt ciclice, generate de o transpoziție sau un ciclu de trei. Acestea nu pot fi grupuri normale. \newline
+    b) În acest caz, există $\sigma \in X$ permutare impară. $\sigma$ poate fi o transpoziție sau un ciclu de lungime 4. Dacă $\sigma$ este transpoziție $\sigma = (ij)$, atunci $\tau \sigma \tau^{-1} = (\tau(i) \tau(j)) \in X \ \forall \ \tau \in S_4$. Deci $X$ conține toate transpozițiile, iar acestea generează $S_4$ (vezi problema următoare). Dacă $\sigma$ este ciclu de lungime 4, $\sigma = (ijkl)$, atunci $X$ va conține toti ciclii de lungime 4. $\sigma^2 = (ik)(jl) \in X$, deci X va conține și toate produsele de câte două transpoziții. Dar (ijkl)(iljk) = (jlk) $\in X$, deci $X$ conține toți ciclii de lungime 3 $\Rightarrow X = S_4$ .  
+\end{enumerate}
+\section{Exercițiul 4}
+Să se arate că $S_n$ este generat de fiecare din următoarele mulțimi de permutări:
+\begin{enumerate}
+    \item (12), (13), \dots, (1,n)
+    \item (12), (23), \dots, (n-1, n)
+    \item (12), (12\dots n)
+    
+\end{enumerate}
+
+\subsection{Rezolvare:}
+Știm ca orice permutare poate fi descompusa in transpoziții. Este deci suficient să demonstrăm ca având permutările date putem forma orice transpoziție. Astfel, fiecare permutare din $S_{n}$ poate fi descompusă in transpoziții iar fiecare transpoziție în permutările date.
+\begin {enumerate}
+    \item Vrem să obținem în cazul general transpoziția (a, b), cu $a, b \leq n$. Având permutările de forma (1, x), se poate observa că $(a, b) = (1, a) (1, b) (1, a)$. Cum avem $(1, a)$ și $(1, b)$ pentru orice a și b în setul nostru de permutări, putem obține orice transpoziție și deci $S_{n}$ este generat de acest set.
+    \item Observăm că în acest set de mulțimi dacă facem produsul elementelor în stilul $(1,2)(2,3)(3,4)...(a-1, a)$ vom obține o permutare circulară a primelor a elemente la stânga. $\bigl(\begin{smallmatrix}
+    1 & 2 & 3 & \dots & a-1 & a \\
+    2 & 3 & 4 & \dots & a & 1
+  \end{smallmatrix}\bigr)$ $\in S_{11}$. Vedem că dacă am permuta circular la dreapta primele a-1 elemente acum am obține permutarea (1, a) pentru orice a. Deci, am obține toate permutările de la punctul anterior iar desrpre ele știm deja că genereaza pe $S_{n}$. Pentru a permuta circular la dreapta primele a-1 elemente trebuie să permutam circular la stanga de a-1 ori primele n elemente. Deci $(1,a)=(1,2)(2,3)(3,4)...(a-1, a) \ ((1,2)(2,3)(3,4)...(a-2,a-1))^{a-2}$. Prin urmare, setul dat de permutări generează $S_{n}$.
+  \item În mod analog ca subpunctul de mai sus, putem să incercăm să generăm elementele de forma (a-1, a) avand permutările date. Dacă le putem genera pe toate ne putem folosi de punctul anterior în a argumenta concluzia. Observăm că $(a-1, a) = (1, 2, ..., n)^{a-1}(1,2)(1, 2, 3, ..., n)^{n-a+1}$. Astfel, putem genera orice element din multimea anterioară de permutări iar cum acestea generează toată mulțimea $S_{n}$, avem deci concluzia că elementele date generează toată mulțimea.
+
+\end {enumerate}
+
+\end{document}

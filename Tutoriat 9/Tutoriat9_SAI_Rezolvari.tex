@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 9 - Rezolvări \\
+\Large  Inele. Polinoame. }
+\date{- 22 ianuarie 2021 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+\section{Exercițiul 1}
+Fie $I$ submulțimea lui $\mathbf{Z}[X]$ formată din toate polinoamele care au termenul liber divizibil cu 6.
+\newline
+(1) Demonstrați că $I$ este un ideal al lui $\mathbf{Z}[X]$.
+\newline
+(2) Dați un exemplu de polinom de grad 4 din $I$.
+\newline
+(3) Arătați că $I=(6,X)$. Este $I$ ideal principal? Justificați.
+\newline
+(4) Determinați toți divizorii lui zero din inelul factor $\mathbf{Z}[X]/I$.
+\newline
+(5) Arătați că $\mathbf{Z}[X]/I$ este un inel finit si gasiți-i numărul de elemente. 
+\newline
+(6) Are loc izomorfismul de inele unitare $\mathbf{Z}[X]/I \cong \mathbf{Z_2} \times \mathbf{Z_3}$? Justificați. 
+\subsection{Rezolvare}
+(1) 
+
+
+\section{Exercițiul 2}
+\begin{enumerate}
+    \item Fie $x, y, z \in \mathbf{C}$ astfel încât
+    $\begin{cases} 
+    x + y + z = 3 \\ 
+   x^2 + y^2 + z^2 = 5 \\ 
+    x^3 + y^3 + z^3 = 6
+    \end{cases}$ \newline
+    Calculați $x^5 + y^5 + z^5$.
+    \item Aflați polinomul monic $P \in Z[T]$ care are ca rădăcini pe $x, y, z$.
+    \item Studiați ireductibilitatea lui $P$ peste $\mathbf{Q}, \mathbf{Z}_2, \mathbf{Z}_5$.
+\end{enumerate}
+\emph{Examen seria 13, 31.01.2020}
+
+\subsection{Rezolvare}
+
+\begin{enumerate}
+    \item Polinomul are cărui rădăcini sunt $x, y, z$ are gradul 3. 
+    Vom rescrie sistemul cu notațiile din formulele lui Newton $p_i = X_1^i + X_2^i + ... + X_n^i$. \newline
+    $\begin{cases} 
+    p_1 = 3 \\ 
+    p_2 = 5 \\ 
+    p_3 = 6
+    \end{cases}$ \newline
+    Cunoaștem că $p_0 = 3$ și $s_1 = p_1$. $x^5 + y^5 + z^5 = p_5$ și îl vom afla folosind formulele lui Newton. Intâi vom afla valorile lui $s_2, s_3$, apoi ale lui $p_4, p_5$.
+    \[ p_2 - p_1 s_1 + 2s_2 = 0 \]
+    \[ s_2 = \frac{p_1 s_1 - p_2}{2} = \frac{9 - 5}{2} = 2\]
+    \[ p_3 - p_2 s_1 + p_1 s_2 - 3 s_3= 0 \]
+     \[ s_2 = \frac{p_3 - p_2 s_1 + p_1 s_2}{3} = \frac{6 - 15 + 6}{3} = -1\]
+     \[ p_4 - p_3 s_1 + p_2 s_2 - p_1 s_3 = 0\]
+     \[ p_4 = p_3 s_1 - p_2 s_2 + p_1 s_3 = 18 - 10 - 3 = 5\]
+     \[ p_5 - p_4 s_1 + p_3 s_2 - p_2 s_3 = 0\]
+     \[ p_5 = p_4 s_1 - p_3 s_2 + p_2 s_3 = 15 - 12 - 5 = -2\]
+     Deci, $x^5 + y^5 + z^5 = p_5 = -2$.
+     \item Polinomul monic $P \in Z[T]$ care are rădăcini $x, y, z$ este $T^3 - s_1 T^2 + s_2 T - s_3$.
+     \[ T^3 - 3T^2 + 2T + 1\]
+      \item Dacă polinomul este reductibil peste $Q$, atunci fie se descompune în 3 polinoame de gradul 1, fie într-un polinom de gradul 1 și unul de gradul al 2-lea. Cum în ambele cazuri există cel puțin un polinom de gradul întâi, dacă $P$ este reductibil atunci are cel puțin o rădăcină $\in \mathbf{Q}$. Fie $\frac{m}{n}, (m, n) = 1, m \in \mathbf{Z}, n \in \mathbf{N}^*$ astfel încât $P(\frac{m}{n}) = 0$ rădăcină a lui $P(T)$. \newline
+      Atunci $m|1$ și $n|1$. deci $\frac{m}{n} \in \{+1, -1\}$. \newline
+      \[ P(1) = 1 - 3 + 2 + 1 = 1 \neq 0\]
+      \[ P(- 1) = -1 - 3 - 2 + 1 = -5 \neq 0\]
+      Deci $P(T)$ nu are nicio rădăcină rațională deci este ireductibil peste $\mathbf{Q}$. 
+      În $\mathbf{Z}_2$ polinomul se poate rescrie astfel: 
+      \[ P(T) = T^3 + T^2 + \widehat{1}\]
+      Analog cazului anterior, întrucât polinomul are gradul 3, pentru a fi reductibil trebuie să aibă cel puțin o rădăcină în $\mathbf{Z}_2$. Aceasta poate fi $\widehat{0}$ sau $\widehat{1}$. \newline
+      Dar $P(\widehat{0}) = \widehat{1}$, iar $P(\widehat{1}) = \widehat{1}$. Astfel polinomul nu are rădăcină în $\mathbf{Z}_2$, deci este ireductibil peste $\mathbf{Z}_2$.
+       În $\mathbf{Z}_5$ polinomul se poate rescrie astfel: 
+      \[ P(T) = T^3 + \widehat{2}T^2 + \widehat{2}T + \widehat{1}\].
+      Vom căuta o rădăcină. 
+      \[ P(\widehat{0}) = \widehat{1}\]
+      \[ P(\widehat{1}) = \widehat{1 + 2 + 2 + 1} = \widehat{1}\]
+      \[ P(\widehat{2}) = \widehat{8 + 8 + 4 + 1} = \widehat{1}\]
+      \[ P(\widehat{3}) = P(\widehat{-2}) = \widehat{-8 + 8 - 4 + 1} = \widehat{2}\]
+      \[ P(\widehat{4}) = P(\widehat{-1}) = \widehat{-1 + 2 - 2 + 1} = \widehat{0}\].
+      Deci $\widehat{4}$ este rădăcină.
+      \[ P(T) = T^3 + T^2 + T^2 + T + T + \widehat{1}\].
+      \[ P(T) = T^2 (T + \widehat{1}) + T(T + \widehat{1}) + (T + \widehat{1})\]
+      \[ P(T) = (T + \widehat{1})(T^2 + T + \widehat{1})\]
+      $\widehat{4}$ este singura rădăcină a lui $P$. Și cum aceasta nu este rădăcină multiplă $T^2 + T + \widehat{1}$ nu are $\widehat{4}$ rădăcină, atunci forma ireductibilă a lui $P(T)$ peste $\mathbf{Z}_5$ este 
+      \[ P(T) = (T + \widehat{1})(T^2 + T + \widehat{1})\]. 
+\end{enumerate}
+
+
+
+\section{Exercițiul 3}
+Fie inelul $Z[X]$ și $I$ submulțimea formată din toate polinoamele care au termenul liber și coeficientul lui $X$ numere divizibile cu 3.
+\newline
+(1) Demonstrați că $I$ este un ideal al lui $Z[X]$.
+\newline
+(2) Determinați un sistem de generatori pentru $I$. Este $I$ ideal principal?
+\newline
+(3) Este inelul $\mathbf{Z}[X]/I$ integru? Dacă nu, determinați toți divizorii lui zero.
+\newline
+(4) Arătați că $\mathbf{Z}[X]/I$ este un inel finit și găsiț-i numărul $n$ de elemente.
+\newline
+(5) Are loc izomorfismul de inele unitare $\mathbf{Z}[X]/I \cong \mathbf{Z_n}$?
+\subsection{Rezolvare}
+
+\end{document}

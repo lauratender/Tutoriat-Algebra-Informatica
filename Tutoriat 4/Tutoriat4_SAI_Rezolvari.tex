@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 4 \\
+\Large Grup factor. Teorema fundamentală de izomorfism pentru grupuri}
+\date{- 25 noiembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+\section{Exercițiul 1}
+Scrieți subgrupurile lui $\mathbf{Z}_{12}$ și grupurile factor ale lui $\mathbf{Z}_{12}$.
+\subsection{Rezolvare:}
+Știm din curs că orice subgrup al lui $Z_n$ este de forma $dZ_n,$ unde $d | n$. Această proprietate apare doarece subgrupul generat de $<a,b> = <(a,b)>$ si deci $<a_1, a_2, ..., a_k> = <(a_1, a_2, ..., a_k)>$. Cum $D_{12} = \{1, 2, 3, 4, 6, 12\}$ subgrupurile lui $Z_{12}$ sunt: $Z_{12}, 2Z_{12}, 3Z_{12}, 4Z_{12}, 6Z_{12}, 12Z_{12}$, unde spre ex. $4Z_{12} = \{\overline{0}, \overline{4}, \overline{8}\}.$
+\newline
+Pentru grupul factor, vom lua ca exemplu $H=\{\overline{0}, \overline{4}, \overline{8}\}.$ Grupul factor este definit ca:
+\newline
+$\frac{G}{H} = \{\{\overline{y} | \overline{y} - \overline{x} \in H, \overline{y} \in Z_{12}\}, \overline{x} \in Z_{12}\}$ 
+\newline
+Un element din grupul factor arata de forma :$\overline{x} + H$.
+\newline
+Prin urmare, $\frac{Z_{12}}{H} = \{\\
+\overline{\overline{0}}=\{\overline{0},\overline{4}, \overline{8}\},\\
+\overline{\overline{1}}=\{\overline{1},\overline{5}, \overline{9}\},\\
+\overline{\overline{2}}=\{\overline{2},\overline{6}, \overline{10}\},\\
+\overline{\overline{3}}=\{\overline{3},\overline{7}, \overline{11}\} \\ \}
+$
+\newline
+În mod analog se rezolvă și pentru restul de grupuri factor.
+
+\section{Exercițiul 2}
+Fie $f: \mathbf{Q} \rightarrow \mathbf{C}$* , definită prin $f(\frac{m}{n}) = \cos(2 \pi) \frac{m}{n} + i \sin 2 \pi \frac{m}{n}$ și notăm cu $U$ mulțimea $U = \{ z \in \mathbf{C}^* | \ \exists n \in \mathbf{N}, \, z^{n} = 1\}$
+
+\begin{enumerate}
+    \item Arătați că $f$ este morfism de grupuri.
+    \item Determinați Ker$f$ și Im$f$.
+    \item Arătați că $\mathbf{Q}/\mathbf{Z} \cong U$.
+\end{enumerate}
+Observație: Grupurile sunt $(\mathbf{Q}, +)$ și $(\mathbf{C}, \cdot)$.
+
+\subsection{Rezolvare:}
+\begin{enumerate}
+    \item Condiția ca $f$ să fie morfism este ca
+     \begin{align*}
+        f(x + y) &= f(x) \cdot f(y) \iff \\
+        \cos 2 \pi (x + y) + i \sin 2 \pi (x + y) &= (\cos 2 \pi x + i \sin 2 \pi x) \cdot (\cos 2 \pi y + i \sin 2 \pi y)
+    \end{align*}
+    Ultima egalitate este adevărată din formulele lui de Moivre.
+
+    \item Observăm că mulțimea $U$ este mulțimea rădăcinilor de ordin $n$ ale unității, adică $U = \{\cos \frac{2k\pi}{n} + i \sin\frac{2k\pi}{n} \ |\ k \in \overline{(1, n-1)} \}$.
+    \newline
+    $z^n = 1 \Rightarrow |z^n| = 1 \Rightarrow |z|^n = 1 \Rightarrow |z| = 1$.
+    \newline
+    Ker $f = \{ x \in \mathbf{Q} | f(x) = 1 \} = \{ x \in \mathbf{Q} | \cos 2 \pi x + i \sin 2 \pi x = 1 \} = \{ x \in \mathbf{Q} \ |\  x \in \mathbf{Z} \}= \mathbf{Z}$ \newline
+    Im $f = \{ y \in \mathbf{C}^* | \ \exists \, x \in \mathbf{Q}\text{, astfel incat } f(x) = y \} = \{ y \in \mathbf{C}^* | \ \exists \, x \in \mathbf{Q}\text{, astfel incat } \cos 2 \pi x + i \sin 2 \pi x = y \} = \{y \in \mathbf{C} \ |\ |y| = 1\} = U$
+
+    \item Putem demonstra că grupul factor $\mathbf{Q}/\mathbf{Z}$. este izomorf cu $U$ folosindu-ne de \textbf{teorema fundamentală de izomorfism}.
+
+    (Teorema fundamentală de izomorfism pentru grupuri) Fie $f:G \rightarrow G'$ un morfism de grupuri. Atunci există un izomorfism de grupuri $\overline{f}:G/Kerf \rightarrow Im f$.
+\newline
+
+    Aplicând teorema pe cazul nostru obținem că există izomorfismul  $\overline{f}:\mathbf{Q}/\mathbf{Z} \rightarrow U$. Deci, 
+    \[
+        \mathbf{Q}/\mathbf{Z} \cong U
+    \]
+\end{enumerate}
+
+\section{Exercițiul 3}
+Folosind teorema de izomorfism pentru grupuri să se arate că grupul factor $(\mathbf{C}/\mathbf{R},+)$ este izomorf cu grupul $(\mathbf{R},+)$.
+\newline \newline
+\emph{(Examen algebră, 04.06.2020, seria 13)}
+
+\subsection{Rezolvare:}
+
+Fie $f:\mathbf{C}\rightarrow\mathbf{R}, \ f(a + bi) = b$. Vom demonstra că $f$ este morfism. Fie $a+bi, \, c+di \in \mathbf{C}, \, a, b, c, d \in \mathbf{R}$.
+\newline
+$f(a+bi+c+di) = f(a+c+(b+d)i)= b + d = f(a+bi) + f(c+di) \ \forall a+bi, \, c+di \in \mathbf{C} \Rightarrow f$ morfism. 
+\newline
+Im$f$ = $\mathbf{R}$ întrucât $f(x) \in \mathbf{R} \ \forall x \in \mathbf{C} \text{ și } \forall \ y \in \mathbf{R} \ \exists x \text{ astfel încât } f(x)=y, y = z + yi, z \in \mathbf{R}$.
+\newline
+Ker $f = \{ x \in \mathbf{C} \ |\ f(x) = 0 \}$, $f(x) = 0 \iff f(a+bi) = 0, \text{ unde }a+bi = x \iff b = 0 \iff x \in \mathbf{R}$. Astfel Ker $f = \mathbf{R}$.
+\newline Conform teoremei de izomorfism pentru grupuri, există un izomorfism de grupuri $\overline{f}:G/Kerf \rightarrow Im f$. $\overline{f}:\mathbf{C}/\mathbf{R} \rightarrow \mathbf{R}$. În concluzie, $(\mathbf{C}/\mathbf{R},+) \cong (\mathbf{R},+)$.
+
+
+\section{Exercițiul 4}
+Fie $G$ grupul factor $(\mathbf{Q}/\mathbf{Z}, +)$ . Arătați că:
+
+\begin{enumerate}
+    \item dacă $a, b \in \mathbf{N}^*$ sunt prime între ele, atunci ord$\left(\widehat{\frac{a}{b}}\right) = b$
+    \item orice subgrup finit generat este ciclic
+    \item $G$ nu este finit generat
+\end{enumerate}
+\subsection{Rezolvare:}
+\begin{enumerate}
+    \item În mod asemănător Exercițiului 1, putem scrie elementele grupului factor ca fiind : $\widehat{\frac{a}{b}} = \frac{a}{b} + \mathbf{Z} = \{\frac{a}{b} + n | n \in \mathbf{Z}\}$. Astfel, observăm că pentru $k \in \mathbf{Z}$, $\widehat{k} = \mathbf{Z}$ și $\widehat{0} = \mathbf{Z}$. Prin urmare, pentru a determina ordinul lui $\widehat{\frac{a}{b}}$ trebuie să vedem cel mai mic număr natural $o$ pentru care $\frac{a}{b} * o \in \mathbf{Z}$. Cum a și b sunt prime între ele avem că o = b, deci $ord(\widehat{\frac{a}{b}}) = b$.
+    
+    \item Un subgrup generat de 2 elemente este de forma $<\widehat{\frac{a}{b}}, \widehat{\frac{c}{d}}> =\{\frac{\widehat{abx + bcy}}{\widehat{bd}} | x, y \in \mathbf{Z}\}.$ Se poate demonstra faptul că elementele mulțimii sunt de forma $k * \frac{cmmdc\widehat{(a,c)}}{cmmmc\widehat{(b,d)}}, k \in \mathbf{Z}$ și deci $<\widehat{\frac{a}{b}}, \widehat{\frac{c}{d}}> = <\frac{cmmdc\widehat{(a,c)}}{cmmmc\widehat{(b,d)}}>$ (această egalitate putând fi demonstrată folosind dubla incluziune). Aplicând inductiv pentru un numar arbitrar de numere relația de mai sus obținem că 
+    \newline
+    $<\widehat{\frac{a_1}{b_1}}, \widehat{\frac{a_2}{b_2}}, ..., \widehat{\frac{a_n}{b_n}}> = <\frac{cmmdc\widehat{(a_1, a_2, ..., a_n)}}{cmmmc\widehat{(b_1, b_2, ..., b_n)}} >$. Astfel, orice subgrup finit generat este ciclic.
+    \item Presupunem că $G$ este finit generat. Conform subpunctului anterior, $G$ este ciclic generat de un element de forma $\frac{a}{b}, a, b, \in \mathbf{Z}.$ Fracția poate fi adusă la forma ireductibilă și conform subpunctului 1, ordinul lui $G$ este un numar natural și deci $G$ are un numar finit de elmente, însă $G$ are o infinitate de elemente, contradicție. Deci $G$ nu este finit generat.
+    
+\end{enumerate}
+
+
+\end{document}

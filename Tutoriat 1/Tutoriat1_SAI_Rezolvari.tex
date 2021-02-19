@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 1 - Rezolvări\\
+\Large Funcții. Relații de echivalență. S.C.I.R.}
+\date{- 2 noiembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\maketitle
+
+\section{Exercițiul 1}
+Fie f : $\mathbb{R} -> \mathbb{R}$, $f(x) =  \begin{cases} 
+    x^2+2x+m, x \leq -1 \\
+    mx-9, x > -1 \\
+   \end{cases}
+$ cu m $\in \mathbb{R}$.
+\newline
+\newline
+a) Realizați graficul funcției pentru m=1.
+\newline
+b) Determinați imaginea funției f în funcție de parametrul real m.
+\newline
+c) Găsiți valorile lui m pentru care funcția dată este:
+\newline
+\tab c.1 injectivă
+\newline
+\tab c.2 surjectivă
+\newline
+\tab c.3 bijectivă
+
+\subsection{Rezolvare:}
+
+a) Pentru m = 1, $f(x) = \begin{cases}
+    x^2+2x+1, x\leq - 1\\
+    x-9, x > -1 \\
+    \end{cases}$.
+\newline
+Vom studia cum se comporta funcția pe cele două ramuri: $f/_{(-\infty, -1]}$ și $f/_{(-1, \infty)}$. 
+\newline
+Ramura superioară este de gradul al II-lea, graficul este o parabolă cu vârful în jos. Vom afla punctul de minim.
+Pentru $ax^2 + bx + c$, vârful parabolei este $( - \frac{b}{2a}, -\frac{\Delta}{4a}) $. Astfel obținem că punctul de minim este (-1, 0).
+\newline
+Ramura inferioară este liniară. $f/_{(-1, \infty)}$ este strict crescătoare. Fie $x, y \in (-1, \infty), \, x < y$. Atunci f(x) = x - 9, f(y) = y - 9. f(x) $<$ f(y) $\iff$ x - 9 $<$ y - 9 $\iff$ x $<$ y, ceea ce este adevărat. Cum $f_{/(-1, \infty)}$ este strict crescătoare minimul este atins pentru x = -1 în punctul (-1, -10).
+
+\begin{tikzpicture}
+  \draw[->] (-5, 0) -- (2, 0) node[right] {$x$};
+  \draw[->] (0, -1) -- (0, 5.5) node[above] {$y$};
+  \draw[scale=0.5, domain=-3.5:-1, smooth, variable=\x, blue] plot ({\x}, {\x*\x + 2*\x + 1});
+  \draw[scale=0.5, domain=-1:10, smooth, variable=\y, red]  plot ({\y - 9}, {\y});
+\end{tikzpicture}
+\newline
+\newline
+b) Vom studia funcția similar subpunctului a) însă în funcție de parametrul real m.
+\newline
+Astfel, punctul de minim al primei ramuri este (-1, m-1). Iar $\lim_{x\to-\infty} f(x) = +\infty$. Deci Im$f_{ (- \infty, -1]}$ este $[m-1, \, +\infty)$.
+\newline
+Vom studia monotonia funcției pentru $(-1, \, +\infty)$. Analog demonstrației de la subpunctul a), pentru $m > 0$ funcția este strict crescătoare.Pentru $m < 0$ funcția este strict descrescătoare. Pentru m = 0, $f/_{ (-1, \, +\infty)}$ = -9, constantă. 
+\newline
+Pentru $m > 0$, $\lim_{x\to \infty} f(x) = +\infty$. Pentru $m < 0$, $\lim_{x\to \infty} f(x) = -\infty$.
+\newline
+Astfel, dacă $m > 0$ , Im$f_{ (-1, \, +\infty)}$ = $(-m-9, \, +\infty)$. Dacă $m < 0$ , Im$f_{ (-1, \, +\infty)}$ = $(-\infty, \, -m-9)$. Dacă m = 0, Im$f_{ (-1, \, +\infty)}$ = {-9}.
+\newline
+În concluzie, Imf = $\begin{cases} 
+    (min(4m-4, \, -m-9), \, +\infty), \, m < 0  \\
+    \{-9\} \cup [-1, \, +\infty), \, m = 0 \\
+    (-\infty, \, -m-9] \cup [4m-4, \, +\infty), \, m > 0 \\
+   \end{cases}$.
+\newline
+\newline
+c) 1. f este injectivă dacă f(x) = f(y) $=>$ x = y. În primul rând vom studia injectivitatea pe ramuri. Cunoaștem că $f/_{ (-\infty, \, -1]}$ și $f/_{ (-1, \, +\infty)}$ sunt monotone, deci injective.
+\newline 
+Caut valorile lui m pentru care funcția nu este injectivă. Fie x, y, $x \in (-\infty, -1]$, iar $y \in (-1, +\infty)$ cu proprietatea că f(x) = f(y). f(x) $\in [m-1, \, +\infty) =>\exists$ y f(y) $\geq$ m-1.
+\newline
+Pentru m $>$ 0, funcția nu este injectivă întrucât $\forall \, y \in (max(4m-4, -m-9), \, +\infty)\ \exists \, x_{1} \in (-\infty, \, -1) \text{ și } x_{2} \in (-1, \, +\infty)$ astfel încât $f(x_{1}) = f(x_{2}) = y$. 
+\newline
+Pentru m = 0, funcția nu este injectivă (f(0) = f(1) = -9).
+\newline
+Pentru m $\leq$ 0, funcția nu este injectivă dacă m - 1 $<$ -m - 9 $\iff$ 2m $<$ -8 $\iff$ m $<$ -4. 
+\newline
+Deci, funcția este injectivă pentru m $\in [-4, 0)$.
+\newline
+\newline
+c) 2. Funcția este surjectivă dacă $\forall$ y $\in \mathbb{R}$, $\exists \, x \in \mathbb{R}$ astfel încât f(x) = y. Cu alte cuvinte, Imf = $\mathbb{R}$. Analizând cazurile obținute la b), pentru a funcția poate fi surjectivă dacă m $<$ 0. De asemenea $(-\infty, \, -m-9] \cup [m-1, \, +\infty) = \mathbb{R}$. 
+\newline
+m - 1 $\leq$ -m - 9 $\iff$ 2m $\leq$ -8 $\iff$ m $\leq$ -4.
+\newline
+Deci, f este surjectivă pentru m $\in (-\infty, -4]$. 
+\newline
+c) 3. O funcție este bijectivă $\iff$ funcția este injectivă și surjectivă. Folosim rezultatele obținute la subpunctele anterioare și găsim că f este bijectivă pentru m $\in (-\infty, -4] \cap [-4, 0] = \{-4\}$.
+
+\section{Exercițiul 2}
+Fie E o mulțime și $A \subseteq E$. Funcția $\xi : E -> \{0, 1\}, \ \  \xi_A (x) = 
+\begin{cases}
+    1, x \in A \\
+    0, x \notin A
+\end{cases}$ 
+\newline
+se numește funcția caracteristică a lui A în E. (Curs 2, Seria 13, pagina 3)
+\newline
+Fie $A, B \subseteq E$, cunoaștem regulile lui de Morgan: 
+\newline
+$C_E(A\cup B) = (C_E A)\cap (C_E B)$
+\newline
+$C_E(A\cap B) = (C_E A)\cup (C_E B)$
+\newline
+Demonstrați regulile lui de Morgan cu ajutorul funcției caracteristice.
+
+\subsection{Rezolvare:}
+Pentru doua submultimi A și B ale unei mulțimi T, funcția caracteristică are următoarele proprietăți:
+\newline
+\newline
+1) $\xi_A = \xi_B \iff A=B$
+\newline
+2) $\xi_{A\cap B} = \xi_A * \xi_B$
+\newline
+3) $\xi_{A\cup B} = \xi_A + \xi_B - \xi_A * \xi_B$
+\newline
+4) $\xi_{C_TA} = 1 - \xi_A$
+\newline
+5) $\xi^2_A = \xi_A$
+\newline
+Putem aplica proprietățile de mai sus în relațiile lui de Morgan, obținând:
+\newline
+$\xi_{C_E(A\cup B)} = 1 - (\xi_A + \xi_B - \xi_A * \xi_B)$ 
+\newline
+$\xi_{(C_E A)\cap (C_E B)} = 1 - (\xi_A^2 + \xi_B^2 - \xi_A * \xi_B) = 1 - (\xi_A + \xi_B - \xi_A * \xi_B)$
+\newline
+Din cele două relații de mai sus, împreună cu proprietatea 1, deducem:
+\newline
+$C_E(A\cup B) = (C_E A)\cap (C_E B)$
+\newline
+În mod analog,
+\newline
+$\xi_{C_E(A\cap B)} = 1 - \xi_A * \xi_B$ 
+\newline
+$\xi_{(C_E A)\cup (C_E B)} = (1 - \xi_A) + (1 - \xi_B) - (1 - \xi_A) * (1 - \xi_B) =1 - \xi_A * \xi_B$
+\newline
+de unde:
+\newline
+$C_E(A\cap B) = (C_E A)\cup (C_E B)$.
+
+
+
+
+\section{Exercițiul 3}
+Arătați că relația de congruență modulo n este relație de echivalență.
+
+\subsection{Rezolvare:} 
+- preluată din Tutoriat 1, anul 2019-2020, de la Gabriel Majeri 
+
+\medskip
+
+Fie \(n \in \mathbb{N}^*\) fixat. Atunci spunem că \(a \equiv b \mod n\) dacă \(n \mid (a - b)\).
+
+Pentru a demonstra că este relație de echivalență, trebuie să demonstrăm că este \emph{reflexivă}, \emph{simetrică} și \emph{tranzitivă}.
+
+\begin{enumerate}
+    \item Reflexivitate
+    \newline
+    Fie \(a \in\mathbb{N}\). Atunci \(n \mid (a - a) = 0\). Astfel \(a \equiv a \mod n\). Deci \(\equiv\) este reflexivă.
+    \item Simetrie
+    \newline
+    Fie \(a, b \in \mathbb{N}\) cu \(a \equiv b \mod n\). Din definiție, \(n \mid (a - b)\). Atunci \(n \mid - (a - b)\). De unde rezultă că \(n \mid (b - a)\). Deci \(b \equiv a \mod n\). Astfel \(\equiv\) este simetrică.
+    \item Tranzitivitate
+    \newline
+    Fie \(a, b, c \in \mathbb{N}\) cu \(a \equiv b \mod n\) și \(b \equiv c \mod n\). Conform definiției \(n \mid (a - b)\) și \(n \mid (b - c)\). Atunci facem suma și obținem \(n \mid ((a - b) + (b - c)) \implies n \mid (a - c)\). Deci \(a \equiv c \mod n\). Astfel \(\equiv\) este tranzitivă.
+\end{enumerate}
+Conform celor trei proprietăți demonstrate mai sus \(\equiv\) este relație de echivalență.
+
+\section{Exercițiul 4}
+Definim pe mulțimea numerelor complexe  $\mathbb{C}$ următoarea relație binară:
+\newline
+\center{$x \rho y \iff x - y \in \mathbb{R}$}
+
+\flushleft
+a) Să se arate că $\rho$ este relație de echivalență.
+\newline
+b) Aflați clasa de echivalență a lui $\pi$ în raport cu $\rho$.
+\newline
+c) Aflați clasa de echivalență a lui $1+2i$ în raport cu $\rho$.
+\newline
+d) Aflați clasa de echivalență a lui $a+bi$, cu $a, b \in \mathbb{R}$, în raport cu $\rho$.
+\newline
+e) Determinați un sistem complet și independent de reprezentanți pentru $\rho$.
+\small(Restanță algebră, seria 13, 04.06.2020)
+
+\subsection{Rezolvare:}
+
+a) Pentru a demonstra că  $\rho$ este relație de echivalență vom arăta că $\rho$ este reflexivă, simetrică și tranzitivă.
+\newline
+$\rho$ este reflexivă $\iff x \, \rho \, x \; \forall x \in \mathbb{R} \iff x - x \in \mathbb{R} \iff 0 \in \mathbb{R}$, ceea ce este adevarat.
+\newline
+$\rho$ este simetrică $\iff \forall \, a, b \in \mathbb{R}$ astfel încât $ a \, \rho \, b $ atunci $b \, \rho \, a$.
+\newline
+$ a \, \rho \, b \iff a-b \in \mathbb{R}$. Dacă a - b $ \in \mathbb{R}$, atunci -(a-b) =  b-a $ \in \mathbb{R} \iff b \, \rho \, a$.
+\newline
+$\rho$ este tranzitivă dacă $ a \, \rho \, b $ și $b \, \rho \, c $ atunci a $\rho$ c.
+\newline
+a $\rho \, b \iff a - b \in \mathbb{R}$ 
+b $\rho \, c \iff b - c \in \mathbb{R}$ 
+\newline
+Atunci a - c = (a - b) + (b - c ) $\in \mathbb{R} \iff a \, \rho \, c$.
+\newline
+\newline
+b) Clasa de echivalență a lui $\pi$ în raport cu $\rho$ este $[\pi] = \{x \mid x \, \rho \, \pi \}$, $[\pi] = \{x \mid x \, - \, \pi \in \mathbb{R}\}$
+\newline
+$\pi = \pi + 0 \cdot i$
+\newline
+x = a + b $\cdot$ i
+\newline
+$\pi - x = \pi - a - bi \in \mathbb{R} \iff b = 0$
+\newline
+Deci, clasa de echivalență a lui $\pi$ este $\mathbb{R}$.
+\newline
+
+c)  Clasa de echivalență a lui 1 + 2i în raport cu $\rho$ este $[1+2i] = \{x \mid x \, \rho \ (1 + 2i) \}$, $[1+2i] = \{x \mid x \, - \, (1+2i) \in \mathbb{R}\}$
+\newline
+x = a + b $\cdot$ i
+\newline
+$x - (1+2i) = a - 1 + (b-2)i \in \mathbb{R} \iff b - 2 = 0 \iff b = 2$
+\newline
+Deci, clasa de echivalență a lui 1+2i este $\{a+2i \mid a \in \mathbb{R}\}$.
+
+d) Clasa de echivalență a lui a + bi în raport cu $\rho$ este $[a+bi] = \{x \mid x \, \rho \ (a + bi) \}$, $[a+bi] = \{x \mid x \, - \, (a+bi) \in \mathbb{R}\}$
+\newline
+x = c + d $\cdot$ i
+\newline
+$x - (a+bi) = a - c + (b-d)i \in \mathbb{R} \iff b - d = 0 \iff b = d$
+\newline
+Deci, clasa de echivalență a lui a+bi este $\{c+bi \mid c \in \mathbb{R}\}$.
+\newline
+
+e) O mulțime A este sistem complet și independent de reprezentanți dacă $\forall \, x, y \in A, x \, \neg \rho \, y$ și $\forall \, x \in \mathbb{C} \; \exists \, y \in A \text{astfel încât} \, x \rho \, y$.
+\newline
+Conform d) clasa de echivalență a lui a+bi este $\{c+bi \mid c \in \mathbb{R}\}$.
+Un sistem de reprezentanți este $\{ai \mid a \in \mathbb{R}\}$.
+\newline
+$\forall \, x = a + bi \in \mathbb{C} \; \exists \, y = bi \in A \ \text{astfel încât} \, x \rho \, y \iff x - y = a \in \mathbb{R} $.
+\newline
+ $\forall \, x = ai, \, y = bi \in A, \, x \neq y,  \ x \, \neg \rho \, y \iff x - y = (a-b)i \notin \mathbb{R} \iff a - b \neq 0$, ceea ce este adevărat.
+
+\end{document}

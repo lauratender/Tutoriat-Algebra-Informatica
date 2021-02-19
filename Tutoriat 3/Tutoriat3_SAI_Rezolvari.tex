@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 3 - Rezolvări\\
+\Large Grupuri. Teorema lui Lagrange}
+\date{- 17 noiembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+
+\section{Exercițiul 1}
+Demonstrați că următoarele grupuri (cu adunarea) nu sunt izomorfe:
+\begin{itemize}
+    \item $Z_{2} \times Z_{2}$ și $Z_{4}$.
+    \item $\mathbf{Z}$ și $\mathbf{Q}$
+    \item $\mathbf{Q}$ și $\mathbf{R}$
+\end{itemize}
+
+\subsection{Rezolvare:}
+\begin {small}
+\emph{Referință: Gabriel Majeri, "Rezolvări Tutoriat 6", 2019, exercițiul 1}
+\end {small}
+
+Pentru a demonstra că două grupuri nu sunt izomorfe, putem folosi procedeul reducerii la absurd. Presupunem că ar exista un izomorfism f și ajungem la o contradicție.
+\begin{itemize}
+    \item În unele cazuri ne putem gândi la ordinele elementelor. Reamintim că ordinul elementului x este cel mai mic număr natural nenul k pentru care \(\underbrace{x + \dots + x}_{k \text{ ori}} = 0\). Un izomorfism păstrează ordinul unui element: \(f(\underbrace{x + \dots + x}_{k \text{ ori}}) = \underbrace{f(x) + \dots + f(x)}_{k \text{ ori}}\).
+        \begin{itemize}
+            \item În $Z_{2} \times Z_{2}$ toate elementele au ordin cel mult 2.
+            \item În $Z_4$ avem și un element de ordin 4 (și anume $\hat{1}$. Pentru elementul de ordin 4 nu am avea corespondent.
+        \end{itemize}
+
+    \item O altă proprietate care trebuie păstrată de izomorfisme este cea de a fi grup ciclic. $\mathbf{Z}$ este un grup ciclic, în timp ce $\mathbf{Q}$ nu este.
+    
+    Demonstrăm prin reducere la absurd. Presupunem că $\mathbf{Q}$ ar fi ciclic. Fie a $\in \mathbf{Q}$ un generator al său. Scriem a sub formă de fracție rațională ireductibilă: a = $\frac{p}{q}$, cu p, q $\in \mathbf{Z}$.
+
+    Observăm că fracția $\frac{p}{q + 1}$ nu poate fi obținută din $\frac{p}{q}$. Oricum am aduna sau scădea fracțiile care sunt multiplu de $\frac{p}{q}$, nu putem ajunge la o fracție cu numitor mai mare.
+
+    \item Dacă ar exista un izomorfism f, acesta ar fi funcție bijectivă. Asta ar însemna că $\mathbf{Q}$ și $\mathbf{R}$ ar avea același cardinal. Dar $\mathbf{Q}$ este mulțime numărabilă, iar $\mathbf{R}$ este nenumărabilă.
+\end{itemize}
+
+\section{Exercițiul 2}
+Arătați că un grup cu 4 elemente este izomorf cu $Z_4$ sau cu grupul lui Klein $Z_2$×$Z_2$.
+
+\subsection{Rezolvare:}
+\begin {small}
+\emph{Referință: Tiberiu Dumitrescu, "Algebra 1", București, 2006, capitolul 10, exercițiul 49}
+\end {small}
+
+\begin{center}
+\begin{tabular}{ c c c c c }
+ ($Z_4$, +) & $\hat{0}$ & $\hat{1}$ & $\hat{2}$ & $\hat{3}$ \\ 
+ $\hat{0}$ & $\hat{0}$ & $\hat{1}$ & $\hat{2}$ & $\hat{3}$ \\  
+ $\hat{1}$ & $\hat{1}$ & $\hat{2}$ & $\hat{3}$ &  $\hat{0}$ \\  
+ $\hat{2}$ & $\hat{2}$ & $\hat{3}$ &  $\hat{0}$ & $\hat{1}$ \\  
+ $\hat{3}$ & $\hat{3}$ & $\hat{0}$ &  $\hat{1}$ & $\hat{2}$\\  
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ c c c c c }
+ ($Z_2$×$Z_2$, +) & ($\hat{0}$, $\hat{0}$) & ($\hat{0}$, $\hat{1}$) & ($\hat{1}$, $\hat{0}$) & ($\hat{1}$, $\hat{1}$) \\ 
+ ($\hat{0}$, $\hat{0}$) & ($\hat{0}$, $\hat{0}$) & ($\hat{0}$, $\hat{1}$) & ($\hat{1}$, $\hat{0}$) & ($\hat{1}$, $\hat{1}$) \\  
+ ($\hat{0}$, $\hat{1}$) & ($\hat{0}$, $\hat{1}$) & ($\hat{0}$, $\hat{0}$) & ($\hat{1}$, $\hat{1}$) &  ($\hat{1}$, $\hat{0}$) \\  
+ ($\hat{1}$, $\hat{0}$) & ($\hat{1}$, $\hat{0}$) & ($\hat{1}$, $\hat{1}$) &  ($\hat{0}$, $\hat{0}$) & ($\hat{0}$, $\hat{1}$) \\  
+ ($\hat{1}$, $\hat{1}$) & ($\hat{1}$, $\hat{1}$) & ($\hat{1}$, $\hat{0}$) &  ($\hat{0}$, $\hat{1}$) &  ($\hat{0}$, $\hat{0}$)\\  
+\end{tabular}
+\end{center}
+
+Fie G un grup cu 4 elemente. Elementele lui G au ordinul divizor al lui 4. Dacă G conține un element x de ordin 4, atunci x, $x^2$, $x^3$ și e = $x^4$ aparțin lui G, deci G este ciclic generat de x. Astfel G  $\simeq Z_4$. 
+\newline
+Dacă G nu conține elemente de ordin 4, atunci putem presupunem că G = $\{1, a, b, c\}$ cu $a^2$ = $b^2$ = $c^2$ = 1
+Dacă ab = 1 (respectiv, ab = a, ab = b), atunci a = b (respectiv, b = 1, a = 1), contradicție.
+Deci ab = c și analog ba = c, ac = ca = b, bc = cb = a. Comparând tablele de înmulțire, vedem că G $ \simeq Z_2$×$Z_2$.
+
+
+\section{Exercițiul 3}
+Arătați că un grup cu 6 elemente este izomorf cu $Z_6$ sau cu $S_3$. 
+
+\subsection{Rezolvare:}
+\begin {small}
+\emph{Referință: Tiberiu Dumitrescu, "Algebra 1", București, 2006, capitolul 10, exercițiul 49}
+\end {small}
+
+Fie G un grup cu 6 elemente. G poate conține un element a de ordin 3 și un element b de ordin 2, conform teoremei lui Cauchy. Deci G = $\{$1, a, $a^2$, b, ab, $a^2$b$\}$.
+
+Dacă ba = 1 (respectiv, ba = b, ba = $b^2$, ba = a), atunci a = b (respectiv, a = 1, a = b, b = 1), contradicție. Deci ba = ab sau ba = $a^2$b. Dacă ba = ab, atunci
+ab are ordinul 6, deci G este ciclic generat de ab, așadar G $\simeq Z_6$.
+Dacă ba = $a^2$b, atunci comparând tabelele, se vede că G $\simeq S_3$.
+
+\section{Exercițiul 4}
+Determinați dacă grupurile $Z_{28} \times Z_{29}$, $Z_{28} \times Z_{30}$, respectiv $\mathbf{R}$ sunt sau nu ciclice.
+
+\subsection{Rezolvare:}
+\begin {small}
+\emph{Referință: Gabriel Majeri, "Rezolvări Tutoriat 5", 2019, exercițiul 3}
+\end {small}
+
+Pentru a simplifica demonstrațiile în problemele în care apar 
+$Z_{n} \times Z_{m}$, ne folosim de o teoremă care ne spune că $Z_{n} \times Z_{m}$ este izomorf cu $Z_{n \times m}$ dacă și numai dacă n este prim față de m. În acest fel, se poate arăta că $Z_{n \times m}$ este ciclic dacă și numai dacă (n, m) = 1.
+\begin{itemize}
+    \item Pentru $Z_{28} \times Z_{29}$, (28, 29) = 1.
+    \item Pentru $Z_{28} \times Z_{30}$, numerele nu sunt prime între ele, deci grupul nu este izomorf cu $Z_{28 \times 30}$.
+    \item Să presupunem că $\mathbf{R}$ ar fi ciclic, și a $ \in \mathbf{R}$ ar fi un generator. Elementul a poate genera doar multiplii de a. Asta înseamnă că toate numerele din $\mathbf{R}$ sunt de forma na, pentru un n $\in \mathbf{Z}$. Dar $\mathbf{R}$ este o mulțime infinită nenumărabilă, deci există elemente care nu sunt generate de a.
+\end{itemize}
+
+Teorema de structură a grupurilor ciclice ne spune că orice grup ciclic este izomorf cu $Z_{n}$, dacă este finit, respectiv $\mathbf{Z}$ dacă este infinit. Deci, la un astfel de exercițiu putem arăta că un grup este/nu este izomorf cu unul dintre grupurile $Z_{n}$ sau $\mathbf{Z}$.
+
+
+
+\section{Exercițiul 5}
+Arătați că singurul morfism de grupuri (Q, +) → (Z, +) este cel nul.
+
+\subsection{Rezolvare}
+Considerăm un morfism $f:\mathbb{Q} \rightarrow \mathbb{Z}$. Fie un număr rațional de forma $\frac{1}{b} \in \mathbb{Q}$.
+Din proprietățiile morfismelor obținem următoarele două relații:
+\newline
+$f(0) = 0$.  
+\newline
+$f(\underbrace{\frac{1}{b} + \dots + \frac{1}{b}}_{b \text{ ori}} ) = f(1) = b*f(\frac{1}{b})  \implies f(\frac{1}{b})=\frac{f(1)}{b}$
+\newline
+\newline
+Cum $f(x) \in \mathbb{Z}, \ \forall x \in \mathbb{Z},$ rezultă că $\frac{f(1)}{b} \in \mathbb{Z}, \ \forall b \in \mathbb{Z}$. Dacă $f(1) \not= 0$, atunci alegem $b = |f(1)| + 1$ si astfel fracția $\frac{f(1)}{b} \not\in \mathbb{Z}$ deoarece $f(1)$ și $b$ sunt prime între ele. Prin urmare $f(1) = 0$.
+\newline
+Din relația de mai sus avem că $f(\frac{1}{b}) = 0$, iar din relația $f(\frac{a}{b})=f(\underbrace{\frac{1}{b} + \dots + \frac{1}{b}}_{a \text{ ori}} ) = a * f(\frac{1}{b})$ rezultă că $f(\frac{a}{b}) = 0 \ \forall a, b \in \mathbb{Z}.$
+
+
+
+\end{document}

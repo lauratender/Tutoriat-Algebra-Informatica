@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 7 - Rezolvări \\
+\Large  Inele. Generalități. }
+\date{- 15 decembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+\section{Exercițiul 1}
+Găsiți elementele inversabile, divizorii lui zero, elementele nilpotente și elementele idempotente din $\mathbf{Z}_{63}$.
+
+\subsection {Rezolvare:}
+Un element $\widehat{x}$ este inversabil în $\mathbf{Z}_{63} \iff (x, \, 63) = 1$. $63 = 3^2 \cdot 7$. Astfel, $U(\mathbf{Z}_{63}) = \{\widehat{1}, \widehat{2}, \widehat{4}, \widehat{5}, ... \}$.
+\newline \newline
+Divizorii lui zero într-un inel $R$ sunt elementele $a \in R$ pentru care $\exists \  b \in R \ b \neq 0$. Din acest motiv elementele care sunt inversabile nu pot fi divizori ai lui zero. 
+\newline
+În $\mathbf{Z}_{n}$ toate elementele $\widehat{x}$ pentru care $(x, n) \neq 1 $ sunt divizori ai lui zero. Răspunsul este $\{\widehat{3}, \widehat{6}, \widehat{7}, \widehat{9}, \widehat{12}, ...\}$.
+\newline \newline
+Elementele nilpotente $a$ sunt cele pentru care $\exists \ n \in \mathbf{N}^*$ astfel încât $a^n = 0$. $0$ este întotdeauna element nipotent.
+În $\mathbf{Z}_{n}$, elementele nilpotente sunt elementele care conțin în descompunere cel puțin toți factorii primi distinți ai lui $n$. Pentru $n = 63$, căutam elementele multiplii de $3 \cdot 7 = 21$. Astfel, $N(\mathbf{Z}_{63}) = \{\widehat{0}, \widehat{21}, \widehat{42}\}$.
+\newline \newline
+$a$ este element idempotent dacă $a^2 = a$. Atât $0$ și $1$ sunt întotdeauna idempotente. De asemenea, dacă $a$ este idempotent, atunci și $1 - a$ este. $a = a^2 \iff a - a^2 = 0 \iff a(1 - a) = 0$. Putem folosi această proprietate pentrun a găsi mai ușor cealaltă jumătate de elemente idempotente,
+\newline
+Fie $n = p_1^{k_1} \cdot p_2^{k_2} \cdot ... \cdot  p_r^{k_r}$. Atunci $\mathbf{Z}_{n} \cong \mathbf{Z}_{p_1^{k_1}} \times ... \times \mathbf{Z}_{p_r^{k_r}}$. Singurele elemente indempotente din fiecare $\mathbf{Z}_{p_i^{k_i}}, \, i \in \overline{(1, r)}$  sunt $\overline{0}, \overline{1}$.
+\newline
+Astfel, $\mathbf{Z}_{63} \cong \mathbf{Z}_{9} \times \mathbf{Z}_{7}$. Elementele indempotente ar fi următoarele: 
+\begin{enumerate}
+    \item $(\overline{0}, \overline{\overline{0}})$, numerele care dau 0 la împărțirea cu 9  și cu 7, $\widehat{0}$.
+    \item $(\overline{1}, \overline{\overline{1}})$ numerele care dau 1 la împărțirea cu 9  și cu 7, $\widehat{1}$.
+    \item $(\overline{0}, \overline{\overline{1}})$ numerele care dau 0 la împărțirea cu 9  și 1 la împărțirea cu 7, $\widehat{36}$.
+    \item $(\overline{1}, \overline{\overline{0}})$ numerele care dau 1 la împărțirea cu 9  și 0 la împărțirea cu 7, $\widehat{36}$. $1 - 36 = -35 \equiv 28$(mod 63), $\widehat{28}$.
+\end {enumerate}
+
+
+\section{Exercițiul 2}
+Se consideră numărul natural $n \geq 2$ care are r factori primi distincți în descompunerea sa. Să se arate că numărul idempotenților lui $\mathbf{Z_n}$ este $2^r$. Să se determine idempotenții inelului $Z_{36}$.
+\subsection {Rezolvare:}
+Descompunem pe n în factori primi, $n=p_1^{q_1}p_2^{q_2} \dots p_r^{q_r}.$ Atunci $\mathbf{Z_n}$ este izomorf cu $Z_{p_1^{q_1}} \times \dots \times Z_{p_r^{q_r}}$
+Singurele elmente idempotente în $Z_{p_i^{q_i}}$ sunt $\widehat{0}$ și $\widehat{1}$. Deci idempotentele lui $\mathbf{Z_n}$ corespund prin izomorfism elementelor de forma $(0, ..., 0, 0), (0, ...., 0, 1),\\ ..., (1, ..., 1, 1)$. Există $2^r$ astfel de r-tupluri.
+Pentru a găsi idempotenții în inelul inițial, construim un sistem de congruențe liniare. De exemplu, pentru $(1, 0, ...., 0, 1)$ sistemul ar fi:
+\newline
+\[ \begin{cases} 
+      x \equiv 1 \mod p_1^{q_1} \\
+      x \equiv 0 \mod p_2^{q_2} \\
+       ... \\
+      x \equiv 0 \mod p_{r-1}^{q_{r-1}} \\
+      x \equiv 0 \mod p_r^{q_r}
+   \end{cases}
+\]
+Din lema chineză a resturilor și din faptul că toți factorii primi sunt numere prime între ele, acest sistem sigur are soluții.
+\newline
+Pe baza descompunerii în factori primi avem că $Z_{36} \cong Z_{2^2} \times Z_{3^2}$. În inelul produs, avem idempotenții $(\widehat{0},\overline{0}), (\widehat{0},\overline{1}), (\widehat{1},\overline{0}), (\widehat{1},\overline{1})$. Primii doi idempotenți corespund lui $\widehat{0}$ și $\widehat{1}$. Pentru a afla corespondenții ultimilor doi idempotenți trebuie să rezolvăm două sisteme de congruențe:
+\newline
+\[ \begin{cases} 
+      x \equiv 0 \mod 4\\
+      x \equiv 1 \mod 9 \\
+   \end{cases}
+\]
+
+\[ \begin{cases} 
+      x \equiv 1 \mod 4\\
+      x \equiv 0 \mod 9 \\
+   \end{cases}
+\]
+Soluția primei ecuații este $\widehat{28}$. Putem rezolva și a doua ecuație, sau ne putem folosi de faptul că $\widehat{1} - \widehat{28}$ este tot idempotent, de unde obținem că $\widehat{1 - 28} = \widehat{-27} = \widehat{9}$ este cealaltă soluție.
+
+
+\end{document}

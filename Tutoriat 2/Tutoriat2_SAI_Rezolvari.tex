@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\title{Tutoriat 2 - Rezolvări\\
+\Large Funcții. Relații de echivalență.}
+\date{- 10 noiembrie 2020 -}
+\author{Savu Ioan Daniel, Tender Laura-Maria}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\maketitle
+
+\section{Exercițiul 1}
+Fie A, B două mulțimi finite cu $|A|$ = a și $|B|$ = b. Calculați:
+\newline
+i) Numărul funcțiilor strict crescătoare de la A la B.
+\newline
+ii) Numărul funcțiilor crescătoare de la A la B.
+
+\subsection{Rezolvare:}
+Ținând cont de faptul ca elementele mulțimiilor sunt comparabile, pentru ușurință, le putem înlocui cu numerele lor de ordine. Astfel, $A = \{1, 2, ... a\}$ și $B = \\ = \{1, 2, ..., b\}$
+\newline
+i) Fie $x_{1}$, $x_{2}$, ..., $x_{a}$ elementele mulțimii A cu $x_{1} < x_{2} < ... < x_{a}$. Fie $y_{1}$, $y_{2}$, ..., $y_{b}$ elementele mulțimii B cu $y_{1} < y_{2} < ... < y_{b}$. 
+f : A $\rightarrow$ B strict crescătoare $\Rightarrow$ $f(x_{1}) <  f(x_{2}) < ... < f(x_{a})$.
+\newline
+Problema ne cere să găsim în câte moduri putem să alegem $f(x_{1}), f(x_{2}), ... f(x_{a})$ astfel încât să fie respectată condiția de funcțe crescătoare. Cum pentru fiecare alegere a unei mulțimi de elemente inclusă în B există o singură modalitate de a le aranja crescător, problema dată devine echivalentă cu următoarea: în câte moduri putem alege a numere din b numere. Dacă $b < a$ nu există nicio funcție strict crescătoare. Pentru $b \geq a$ răspunsul este $C^a_b$.
+\flushleft
+ii) Condiția de funcție crescătoare este $f(x_{1}) \leq  f(x_{2}) \leq ... \leq f(x_{a})$. Diferența față de punctul anterior provine din faptul că acum putem alege din mulțimea B același element de mai multe ori. Pentru a scăpa de această deosebire, putem să rescriem inegalitatea de mai sus în modul următor
+\newline
+$f(x_{1}) <  f(x_{2}) + 1 < f(x_{3}) + 2 <  ... < f(x_{a}) + a - 1$
+\newline
+Construim următoarea funcție $g : \{1, 2, ..., a\} \rightarrow \{1, 2, ..., b, b + 1, ..., b + a - 1\}$
+\newline
+$g(x_{k}) = f(x_k) + k - 1$. Problema inițială devine echivalentă astfel cu a determina numărul de funcții strict crescătoare de la $\{1, 2, ..., a\}$ la $\{1, 2, ..., b, b + 1, ..., b + a - 1\}$. Analog, acest număr este $C^a_{b + a - 1}$.
+
+
+\section{Exercițiul 2}
+Să se determine p $\in \, \mathbb{N}$* astfel încât funcția f : $\mathbb{N} \rightarrow \mathbb{N}$, f(n) = [$\frac{n}{p}$] + [$\frac{n+1}{p}$] + [$\frac{n+2}{p}$] să fie bijectivă.
+
+\subsection{Rezolvare:}
+f(n) = [$\frac{n}{p}$] + [$\frac{n+1}{p}$] + [$\frac{n+2}{p}$]
+\newline
+f(n+1) = [$\frac{n+1}{p}$] + [$\frac{n+2}{p}$] + [$\frac{n+3}{p}$]
+\newline
+f(n+1) - f(n) = [$\frac{n+3}{p}$] -  [$\frac{n}{p}$] $\geq 0 \ \forall n, p \Rightarrow$ funcția este crescătoare. 
+\newline
+Pentru p = 1, f(n) = 3n + 3. f(0) = 3 și cum funcția este crescătoare nu există x $\in \mathbb{N}$ astfel încât f(x) = 0, deci funcția nu este surjectivă.
+\newline
+Pentru p = 2, f(0) = 1 deci nici în acest caz funcția nu este surjectivă.
+\newline
+\textbf{Identitatea lui Hermite}
+[a] + [$a + \frac{1}{n}$] + [a + $\frac{2}{n}$] + ... +  [$ a + \frac{n-1}{n}$] = [na] $\forall a \in \mathbb{R}, n \in \mathbb{N}$*
+\newline
+Pentru p = 3, alegând a = $\frac{n}{p}$, conform identității enunțate mai sus f(n) = n, care este bijectivă.
+\newline
+Pentru p $>$ 3 f(0) = f(1) = 0, deci funcția nu este injectivă.
+\newline
+Astfel f bijectivă pentru p = 3.
+
+\section{Exercițiul 3}
+Să se arate că funcția f : $\mathbb{N} \times  \mathbb{N} \rightarrow \mathbb{N}$ f(m, n) = $\frac{(m+n)(m+n+1)}{2}$ + m este o funcție bijectivă.
+
+\subsection{Rezolvare:}
+Funcția este surjectivă dacă $\forall x \in \mathbb{N} \ \exists \ m,\, n \in \mathbb{N} $ astfel încât f(m, n) = x. 
+$\frac{(m+n)(m+n+1)}{2}$ + m = x
+\newline
+(m+n)(m+n+1) + 2m = 2x
+\newline
+Fie m + n = k, relația se rescrie astfel 
+$k^2$ + k + 2m = 2x
+\newline
+Pentru orice x căutam cel mai mare k cu proprietatea că $k^2$ + k $\leq$ 2x. Atunci deducem că $(k + 1)^2$ + k + 1 $>$ 2x.
+Atunci m = $\frac{2x - k^2 + k}{2} \in \mathbb{N}$, iar n = k - m. 
+\newline
+m $\leq$ k $\iff$ $\frac{2x - k^2 + k}{2} \leq $ k $\iff 2x - k^2 + k \leq$ 2k $\iff 2x \leq k^2 + 3k \iff 2x < k^2 + 3k + 2$ (conform alegerii k maxim).
+\newline
+Astfel funcția este sujectivă.
+\newline
+k(k+1) $\leq$ 2x $<$ (k+1)(k+2) = $k^2$ + 3k + 2.
+\newline
+Pentru a demonstra că funcția este injectivă vom presupune ca există un alt k' care îndeplinește egalitatea.
+\newline
+2x = $k'^2$ + k' + 2m
+\newline
+Cum k' nu e maxim, $(k' + 1)^2$ + k' + 1 $\leq$ 2x
+\newline
+Cum m  $\leq$ k',
+$k'^2$ + 3k' + 2 = $k'^2$ + k' + 2k' + 2 $>$ $k^2$ + k' + 2m = 2x (contradicție).
+
+\section{Exercițiul 4}
+Fie A mulțimea $\{1, 2, ..., 2000\}$. Să se determine numărul relațiilor de echivalență pe A ale căror mulțimi factor sunt formate din două clase de echivalență.
+\subsection{Rezolvare:}
+Știm că oricărei relații de echivalență pe o mulțime îi corespunde într-un mod bijectiv o partiție a mulțimii. Trebuie să determinăm în câte moduri putem să partiționăm A în două mulțimi, B și C.
+\newline 
+Dacă B are 1 element, atunci avem $C^1_{2000}$ posibilități.
+\newline
+Dacă B are 2 elemente, atunci avem $C^1_{2000}$ posibilități.
+\newline
+...
+\newline
+Dacă B are 999 elemente, atunci avem $C^{999}_{2000}$ posibilități.
+\newline
+Daca B are 1000 elemente, atunci avem $\frac{C^{1000}_{2000}}{2}$ posibilități (deoarce nu contează ordinea pentru B și C, iar o alegere a elementelor lui B determina elementele lui C).
+\newline
+Nu vom lua cazurile pentru care B are mai mult de 1000 de elemente deoarece se regăsesc in cazurile de mai sus, B C fiind echivalent cu C B.
+\newline
+Folosindu-ne de prorpietățiile combinăriilor, și anume
+\newline
+$C^k_n = C^{n - k}_n$
+\newline
+$C^0_n + C^1_n + ... + C^n_n = 2^n$
+rezultatul este
+\newline
+$N = 2^{n-1} - 1$
+
+
+
+\end{document}
